@@ -2,13 +2,26 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled
+        ? "bg-black/90 backdrop-blur-md border-b border-orange-500/20 shadow-lg shadow-orange-500/5"
+        : "bg-black/50 backdrop-blur-sm border-b border-white/5"
+    }`}>
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* Logo */}
@@ -36,7 +49,7 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Link href="/contact" className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">
+          <Link href="/contact" className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all hover:shadow-lg hover:shadow-orange-500/25">
             Get Started
           </Link>
         </div>
@@ -55,7 +68,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-black border-t border-white/10 px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-black/95 border-t border-white/10 px-6 py-4 flex flex-col gap-4">
           <Link href="/" className="text-gray-400 hover:text-white text-sm">Home</Link>
           <Link href="/services" className="text-gray-400 hover:text-white text-sm">Services</Link>
           <Link href="/portfolio" className="text-gray-400 hover:text-white text-sm">Portfolio</Link>

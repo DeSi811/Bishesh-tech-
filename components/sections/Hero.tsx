@@ -6,59 +6,31 @@ export default function Hero() {
   return (
     <section className="min-h-screen bg-[#0A0F1E] flex items-center justify-center px-6 pt-24 relative overflow-hidden">
 
-      {/* Smoke/Glow Effects */}
+      {/* Smoke — hidden on mobile, visible on desktop */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-        {/* Big orange glow left */}
         <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
-          }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-orange-500 blur-[120px]"
+          className="absolute -top-40 -left-40 w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-orange-500 blur-[100px] md:blur-[120px] opacity-20 md:opacity-100"
         />
 
-        {/* Big blue glow right */}
         <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.1, 0.2, 0.1],
-          }}
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.08, 0.18, 0.08] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-blue-600 blur-[120px]"
+          className="absolute -bottom-40 -right-40 w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-blue-600 blur-[100px] md:blur-[120px] opacity-20 md:opacity-100"
         />
 
-        {/* Center purple smoke */}
         <motion.div
-          animate={{
-            y: [-20, 20, -20],
-            opacity: [0.05, 0.15, 0.05],
-          }}
+          animate={{ y: [-20, 20, -20], opacity: [0.03, 0.1, 0.03] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-purple-600 blur-[140px]"
+          className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-purple-600 blur-[140px]"
         />
 
-        {/* Small floating smoke 1 */}
         <motion.div
-          animate={{
-            y: [-30, 30, -30],
-            x: [-10, 10, -10],
-            opacity: [0.1, 0.2, 0.1],
-          }}
+          animate={{ y: [-30, 30, -30], x: [-10, 10, -10], opacity: [0.08, 0.15, 0.08] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 right-1/4 w-[200px] h-[200px] rounded-full bg-orange-400 blur-[80px]"
-        />
-
-        {/* Small floating smoke 2 */}
-        <motion.div
-          animate={{
-            y: [20, -20, 20],
-            x: [10, -10, 10],
-            opacity: [0.08, 0.18, 0.08],
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 left-1/4 w-[250px] h-[250px] rounded-full bg-blue-400 blur-[90px]"
+          className="hidden md:block absolute top-20 right-1/4 w-[200px] h-[200px] rounded-full bg-orange-400 blur-[80px]"
         />
 
       </div>
@@ -66,7 +38,6 @@ export default function Hero() {
       {/* Content */}
       <div className="max-w-4xl mx-auto text-center relative z-10">
 
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -77,7 +48,6 @@ export default function Hero() {
           <span className="text-gray-400 text-sm">Nepal's Modern Tech Partner</span>
         </motion.div>
 
-        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,7 +59,6 @@ export default function Hero() {
           For Nepal
         </motion.h1>
 
-        {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -100,7 +69,6 @@ export default function Hero() {
           with modern websites, SEO, and smart technology.
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -125,7 +93,6 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Trust Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
