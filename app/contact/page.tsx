@@ -1,6 +1,13 @@
+import type { Metadata } from "next"
 import Navbar from "@/components/sections/Navbar"
 import Contact from "@/components/sections/Contact"
 import Footer from "@/components/sections/Footer"
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Get in touch with Bishesh Tech. We are ready to help your Nepal business grow online.",
+  alternates: { canonical: "/contact" },
+}
 
 export default function ContactPage() {
   return (

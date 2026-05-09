@@ -1,6 +1,13 @@
+import type { Metadata } from "next"
 import Navbar from "@/components/sections/Navbar"
 import Services from "@/components/sections/Services"
 import Footer from "@/components/sections/Footer"
+
+export const metadata: Metadata = {
+  title: "Our Services",
+  description: "Bishesh Tech offers website development, SEO, social media management, school systems, clinic booking, and restaurant solutions in Nepal.",
+  alternates: { canonical: "/services" },
+}
 
 export default function ServicesPage() {
   return (
